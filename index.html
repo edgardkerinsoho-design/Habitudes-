@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Calendrier simple pour cocher ses activités semaine après semaine." />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <title>Calendrier</title>
+    <script type="module" crossorigin src="./assets/index-DYJlC07n.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-D7DjA7xx.css">
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Calendrier"><span class="brand-icon">✓</span><span>Calendrier</span></a>
+        <span class="offline-label"><i id="offline-dot"></i><span id="offline-label">Hors connexion disponible</span></span>
+      </header>
+
+      <main class="calendar-page">
+        <header class="calendar-header">
+          <div>
+            <p class="small-label">CALENDRIER</p>
+            <h1 id="month-title">Novembre 2026</h1>
+            <p id="date-range" class="date-range">Du 23 au 29 novembre 2026</p>
+          </div>
+          <div class="navigation">
+            <button id="today-button" class="today-button" type="button">Aujourd’hui</button>
+            <button id="previous-week" class="nav-button" type="button" aria-label="Semaine précédente">‹</button>
+            <button id="next-week" class="nav-button" type="button" aria-label="Semaine suivante">›</button>
+          </div>
+        </header>
+
+        <section id="calendar-card" class="calendar-card" aria-label="Calendrier hebdomadaire">
+          <div class="calendar-toolbar">
+            <p>Décoche ou coche les jours où tu fais réellement chaque activité.</p>
+            <button id="add-button" class="add-button" type="button"><span>＋</span> Ajouter une activité</button>
+          </div>
+          <div id="calendar" class="calendar-scroll"></div>
+          <div class="calendar-footnote">Les jours sont libres : tu peux faire une activité n’importe quel jour de la semaine.</div>
+        </section>
+      </main>
+
+      <div id="activity-modal" class="modal-layer" hidden>
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+          <button id="close-modal" class="close-button" type="button" aria-label="Fermer">×</button>
+          <p class="small-label">ACTIVITÉ</p>
+          <h2 id="modal-title">Ajouter une activité</h2>
+          <form id="activity-form">
+            <input id="activity-id" type="hidden" />
+            <label for="activity-name">Nom</label>
+            <input id="activity-name" type="text" maxlength="50" placeholder="Ex. footing" required autocomplete="off" />
+            <label for="activity-target">Nombre de fois par semaine</label>
+            <input id="activity-target" type="number" min="1" max="7" value="3" required />
+            <div class="modal-actions"><button id="cancel-modal" class="cancel-button" type="button">Annuler</button><button class="save-button" type="submit"><span id="save-label">Ajouter</span></button></div>
+          </form>
+          <button id="delete-activity" class="delete-button" type="button" hidden>Supprimer cette activité</button>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
